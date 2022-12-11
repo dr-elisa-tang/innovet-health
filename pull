@@ -1,0 +1,15 @@
+cd repos
+
+dir=$PWD
+
+for i in `ls -d *`; do 
+    cd "$dir/$i"; 
+
+    current_branch=$(git rev-parse --abbrev-ref HEAD)
+    printf "\n$i | branch: $branch"
+    
+    git pull || {
+        printf "\n\n Failed pull latest version of $i in $branch"
+    }
+done
+printf "\n"

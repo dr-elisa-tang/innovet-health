@@ -1,0 +1,24 @@
+if [ $# -ne 2 ]; then
+  printf "\nUse the following syntax filling in the two parameters appropriately to run this script:\n\n./clone <github-username> <github-personal-access-token>\n\n"
+  exit 1
+fi
+
+repos=(
+    "https://$1:$2@github.com/elisa-tang/ivh-appraisal-service.git"
+    "https://$1:$2@github.com/elisa-tang/ivh-pto-service.git"
+    "https://$1:$2@github.com/elisa-tang/ivh-timesheet-service.git"
+    "https://$1:$2@github.com/elisa-tang/ivh-database.git"
+    "https://$1:$2@github.com/elisa-tang/ivh-web-interface.git"
+)
+
+mkdir repos
+cd repos
+
+printf "\n\nCLONING REPOSITORIES\n\n"
+
+for i in "${repos[@]}"; do
+git clone $i || { 
+    printf "\nERROR CLONING REPOSITORIES\n"
+    echo "Error Cloning: $i";
+    }
+done
