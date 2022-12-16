@@ -1,0 +1,47 @@
+version: '3'
+services:
+  ivh-db:
+    image: ivh-db
+    build:
+      context: ./repos/ivh-postgres-db
+      dockerfile: ./Dockerfile
+    container_name: ivh-db
+    ports:
+      - 5432:5432
+    networks:
+      - db
+    expose:
+      - 5433
+
+  ivh-service:
+    image: ivh-service
+    build:
+      context: ./repos/ivh-spring-boot-service
+      dockerfile: ./Dockerfile
+    container_name: ivh-service
+    ports:
+      - 8090:8090
+    depends_on:
+      - ivh-db
+    networks:
+      - ui
+      - db
+
+  ivh-web:
+    image: ivh-web
+    build:
+      context: ./repos/ivh-vuejs-web
+      dockerfile: ./Dockerfile
+    container_name: ivh-web
+    ports:
+      - 8080:8080
+    depends_on:
+      - ivh-service
+    networks:
+      - ui
+
+networks:
+  db:
+    driver: bridge
+  ui:
+    driver: bridge
