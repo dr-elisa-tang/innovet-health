@@ -4,11 +4,9 @@ if [ $# -ne 2 ]; then
 fi
 
 repos=(
-    "https://$1:$2@github.com/elisa-tang/ivh-appraisal-service.git"
-    "https://$1:$2@github.com/elisa-tang/ivh-pto-service.git"
-    "https://$1:$2@github.com/elisa-tang/ivh-timesheet-service.git"
-    "https://$1:$2@github.com/elisa-tang/ivh-database.git"
-    "https://$1:$2@github.com/elisa-tang/ivh-web-interface.git"
+    "https://$1:$2@github.com/elisa-tang/ivh-postgres-db.git"
+    "https://$1:$2@github.com/elisa-tang/ivh-spring-boot-service.git"
+    "https://$1:$2@github.com/elisa-tang/ivh-vuejs-web.git"
 )
 
 mkdir repos
