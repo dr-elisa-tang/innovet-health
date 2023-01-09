@@ -17,9 +17,7 @@ Open innovet-health/repo directory in IDE (VSCode, IntelliJ etc.)
 ./reconstruct-env
 
 ## Current functioning Endpoints
-Displays appraisal of an employee based on the employee ID
-http://localhost:8080/appraisal/view/employeeId/{employee_id} 
-Displays appraisals for the specified year
-http://localhost:8080/appraisal/view/year/{year}
-Creates appraisals and goal records for all employees for the specified year
-http://localhost:8080/appraisal/initiate/year/{year}
+Displays appraisal of an employee based on the employee ID <br/>
+http://localhost:8080/appraisal/view/employeeId/<i>{ employee_id }</i><br/><br/>
+Creates appraisals and goal records for all employees for the specified year<br/>
+http://localhost:8080/appraisal/initiate/year/<i>{ year }</i>
