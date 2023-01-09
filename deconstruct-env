@@ -1,0 +1,5 @@
+docker-compose -f local-environment.yml down
+
+docker image rm ivh-web
+docker image rm ivh-service
+docker image rm ivh-db
